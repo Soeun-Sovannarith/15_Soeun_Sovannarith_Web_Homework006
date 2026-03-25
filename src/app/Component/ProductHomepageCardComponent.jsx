@@ -1,7 +1,12 @@
 "use client";
-export default function ProductHomepageCardComponent() {
+import Image from "next/image";
+import Link from "next/link";
+import { Zap, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export default function ProductHomepageCardComponent({ count = 2 }) {
   return (
-    <div className="group relative w-full max-w-md h-[700px] bg-gradient-to-br from-pink-50 to-white rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden border border-pink-100 shadow-[0_20px_50px_rgba(236,72,153,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(236,72,153,0.1)] hover:-translate-y-2">
+    <div className="group relative w-full h-[700px] bg-gradient-to-br from-pink-50 to-white rounded-[2.5rem] p-8 flex flex-col justify-between overflow-hidden border border-pink-100 shadow-[0_20px_50px_rgba(236,72,153,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(236,72,153,0.1)] hover:-translate-y-2">
       <div className="absolute -top-20 -right-20 w-64 h-64 bg-pink-200/30 rounded-full blur-3xl group-hover:bg-pink-300/40 transition-colors duration-700" />
       <div className="relative z-10 flex flex-col gap-1">
         <div className="flex items-center gap-2">
@@ -18,11 +23,10 @@ export default function ProductHomepageCardComponent() {
         </p>
       </div>
       <div className="relative z-10 flex items-center justify-center py-4 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3">
-        <Image
-          src={""}
-          alt="Macbook Pro M5"
-          className="w-full h-auto drop-shadow-[0_35px_35px_rgba(236,72,153,0.3)]"
-          priority
+        <img
+          src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=3456&auto=format&fit=crop"
+          alt="Macbook Pro"
+          className="w-full h-auto drop-shadow-[0_35px_35px_rgba(236,72,153,0.3)] object-cover rounded-xl"
         />
       </div>
       <div className="relative z-10 w-full flex items-center justify-between">
@@ -33,8 +37,8 @@ export default function ProductHomepageCardComponent() {
           <span className="text-2xl font-black text-slate-800">$1,999</span>
         </div>
 
-        <Link>
-          <Button className="group/btn bg-pink-400 hover:bg-pink-600 text-white h-14 px-8 rounded-2xl font-bold shadow-lg shadow-pink-200 transition-all active:scale-95 flex gap-2">
+        <Link href="/">
+          <Button className="group/btn bg-pink-400 hover:bg-pink-600 text-white h-14 px-8 rounded-2xl font-bold shadow-lg shadow-pink-200 transition-all flex gap-2">
             View Details
             <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />
           </Button>
