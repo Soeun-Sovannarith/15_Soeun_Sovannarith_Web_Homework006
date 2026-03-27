@@ -68,11 +68,14 @@ export default function ProductListPage() {
           </div>
         ) : (
           filteredProducts.map((p) => {
+            
             const imageSrc = p.imageUrl || "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=2788&auto=format&fit=crop";
 
             return (
               <div key={p.productId} className="flex flex-col bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                {}
                 <div className="relative h-64 bg-[#1a202c] overflow-hidden flex items-center justify-center p-6">
+                  {}
                   <div className="absolute flex flex-col gap-2 top-4 left-4 z-10">
                     <span className="bg-slate-900/50 backdrop-blur-md text-white text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-max">
                       New
@@ -90,6 +93,7 @@ export default function ProductListPage() {
                   />
                 </div>
 
+                {}
                 <div className="flex-1 p-6 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start gap-2">

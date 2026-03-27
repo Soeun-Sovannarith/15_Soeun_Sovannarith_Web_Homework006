@@ -64,6 +64,14 @@ export default function CustomerListPage() {
                   Loading...
                 </td>
               </tr>
+            ) : filteredCustomers.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="py-20 text-center">
+                  <span className="italic text-slate-400 font-medium text-sm">
+                    No customer data available.
+                  </span>
+                </td>
+              </tr>
             ) : filteredCustomers.map((c) => (
               <tr key={c.customerId} className="hover:bg-slate-50/50 transition-colors">
                 <td className="px-6 py-4">

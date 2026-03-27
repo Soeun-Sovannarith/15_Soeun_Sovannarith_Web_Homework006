@@ -8,7 +8,7 @@ export default function NotFound() {
     <BlankLayout>
       <div className="relative flex flex-col items-center justify-center w-full max-w-2xl text-center space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
         
-        {/* Giant 404 Background Text */}
+        {}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] text-[20rem] font-black text-slate-100/60 -z-10 select-none tracking-tighter">
           404
         </div>

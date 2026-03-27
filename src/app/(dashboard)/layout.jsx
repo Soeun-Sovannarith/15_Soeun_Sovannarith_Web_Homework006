@@ -1,52 +1,25 @@
 import Link from "next/link";
-import { Bell, ShoppingCart, LogOut, Package, Users, Layers, Settings } from "lucide-react";
-import SidebarNav from "@/app/Component/SidebarNav";
+import { Bell, ShoppingCart, Package, Users, Layers, SettingsIcon, UserIcon, CreditCardIcon } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="flex min-h-screen w-full bg-[#fafafa]">
-    
-      <aside className="w-[260px] flex flex-col border-r bg-white h-screen sticky top-0">
-        <div className="p-6">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="h-10 w-10 bg-cyan-100 rounded-xl flex items-center justify-center">
-              <ShoppingCart className="h-5 w-5 text-cyan-500" />
-            </div>
-            <div>
-              <h1 className="text-xl font-black text-cyan-600 tracking-tight leading-none uppercase">
-                HRD <span className="text-blue-600">SHOP</span>
-              </h1>
-              <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">
-                Admin V2.0
-              </p>
-            </div>
-          </Link>
-        </div>
-
-        <div className="px-4 py-2 mt-4 flex-1">
-          <p className="text-[10px] font-bold text-slate-400 mb-4 px-2 uppercase tracking-widest">
-            Main Menu
-          </p>
-          <SidebarNav />
-        </div>
-
-        <div className="p-6">
-          <button className="flex items-center gap-3 text-red-600 font-bold hover:opacity-80 transition-opacity">
-            <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-red-600">
-              <LogOut className="h-4 w-4" />
-            </div>
-            Sign Out
-          </button>
-        </div>
-      </aside>
-
-    
-      <main className="flex-1 flex flex-col min-w-0">
-    
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="flex-1 flex flex-col min-w-0 bg-[#fafafa]">
         <header className="h-[72px] bg-white border-b flex items-center justify-between px-8 sticky top-0 z-10">
           <div className="flex items-center gap-4 text-slate-400">
-          
-            <Layers className="h-5 w-5 opacity-0" />
+            <SidebarTrigger className="-ml-1 text-slate-500 hover:text-slate-800" />
           </div>
 
           <div className="flex items-center gap-6">
@@ -60,21 +33,46 @@ export default function DashboardLayout({ children }) {
               </span>
             </button>
             <div className="h-8 w-px bg-slate-200 mx-2" />
-            <div className="flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=256&auto=format&fit=crop"
-                alt="Admin User"
-                className="h-9 w-9 rounded-full object-cover border-2 border-white shadow-sm"
-              />
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-slate-800 leading-none">
-                  Admin User
-                </span>
-                <span className="text-[10px] font-bold text-slate-400 mt-1 uppercase">
-                  KSHRD
-                </span>
-              </div>
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-3 hover:bg-slate-50 p-1.5 pl-1.5 pr-4 rounded-full transition-colors focus-visible:outline-none focus:ring-2 focus:ring-slate-200 cursor-pointer border-none bg-transparent">
+                <img
+                  src="https://static.wikia.nocookie.net/herofanon/images/c/ce/Chill_Guy.jpg"
+                  alt="Admin User"
+                  className="h-9 w-9 shrink-0 rounded-full object-cover border-2 border-white shadow-sm"
+                />
+                <div className="hidden sm:flex flex-col items-start">
+                  <span className="text-sm font-bold text-slate-800 leading-none">
+                    Admin User
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 mt-1 uppercase">
+                    KSHRD
+                  </span>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 rounded-2xl p-2 shadow-xl border-slate-100" align="end" alignOffset={0}>
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel className="font-normal flex flex-col gap-1 p-2 pb-3">
+                    <span className="text-[15px] font-bold text-slate-800 leading-none">Admin User</span>
+                    <span className="text-[13px] font-medium text-slate-400">admin@hrdshop.com</span>
+                  </DropdownMenuLabel>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator className="bg-slate-100 mx-1 mb-2" />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem className="py-2.5 px-2 rounded-xl cursor-pointer">
+                    <UserIcon className="size-4" />
+                    My Profile
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="py-2.5 px-2 rounded-xl cursor-pointer">
+                    <CreditCardIcon className="size-4" />
+                    Billing
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="py-2.5 px-2 rounded-xl cursor-pointer">
+                    <SettingsIcon className="size-4" />
+                    Settings
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
@@ -82,6 +80,6 @@ export default function DashboardLayout({ children }) {
           {children}
         </div>
       </main>
-    </div>
+    </SidebarProvider>
   );
 }

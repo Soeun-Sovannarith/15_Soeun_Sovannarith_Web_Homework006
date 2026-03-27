@@ -15,7 +15,7 @@ export default async function CustomerProfilePage({ params }) {
   return (
     <div className="w-full max-w-3xl bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 flex overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-500">
       
-      {/* Left Column (Avatar/Name Profile) */}
+      {}
       <div className="w-2/5 p-8 flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 border-r border-slate-100">
         <div className="h-40 w-40 rounded-full bg-slate-200 border-4 border-white shadow-xl shadow-slate-200/50 flex items-center justify-center overflow-hidden mb-6">
           <User className="h-20 w-20 text-slate-400" />
@@ -25,7 +25,7 @@ export default async function CustomerProfilePage({ params }) {
         </h2>
       </div>
 
-      {/* Right Column (Details) */}
+      {}
       <div className="w-3/5 p-8 flex flex-col justify-between">
         
         <div className="space-y-8">
@@ -79,7 +79,7 @@ export default async function CustomerProfilePage({ params }) {
         </div>
 
         <div className="flex items-center gap-4 pt-8 border-t border-slate-100 mt-8">
-          <Button className="flex-1 bg-slate-900 hover:bg-slate-800 text-white rounded-xl h-12 font-bold shadow-lg shadow-slate-900/20 transition-all">
+          <Button className="flex-1 bg-slate-900 hover:bg-yellow-400 text-white hover:text-slate-900 rounded-xl h-12 font-bold shadow-lg shadow-slate-900/20 hover:shadow-yellow-400/30 transition-all duration-300">
             Edit Profile
           </Button>
           <Button variant="outline" className="flex-1 border-red-100 bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-xl h-12 font-bold transition-all">
